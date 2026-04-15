@@ -13,8 +13,13 @@ border: 1px solid gray;
 .locationWraper{
     display: flex;
     flex-direction: column;
+    margin-bottom: 40px;
 
 
+}
+
+.inputWraper{
+    position: relative;
 }
 
 .label{
@@ -26,9 +31,8 @@ font-weight: 400;
 }
 .input{
 
-    padding: 16px 20px;
+    padding: 16px 20px 16px 48px;
     border-radius: 20px;
-    gap: 8px;
     width: 312px;
 
     background-color: var(--main-white);
@@ -37,7 +41,64 @@ font-weight: 400;
     font-weight: 400;
     font-size: 16px;
     line-height: 1.5;
+    color: var(--gray);
+
+
+}
+
+input:focus{
     color: var(--main-black);
+}
 
+.iconLocation{
+    position: absolute;
+    left: 20px;
+    top: 20px;
 
+    pointer-events: none
+
+}
+
+/*Filters*/
+
+.filters{
+    display: flex;
+        flex-direction: column;
+    gap: 24px
+}
+.filterTitle{
+    font-weight: 600;
+        font-size: 20px;
+        line-height: 1.2;
+        color: var(--main-black);
+       
+}
+.filterCategory{
+display: flex;
+flex-direction: column;
+gap: 8px;
+
+}
+.categoryName{
+font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--gray)
+}
+.radioGroup{
+    display: flex;
+        flex-direction: column;
+}
+.radioLabel{
+   
+}
+.radioInput{
+    margin-right: 8px;
+}
+.radioText{
+
+    font-weight: 400;
+        font-size: 16px;
+        line-height: 1.5;
+        color: var(--main-black)
 }
