@@ -1,0 +1,32 @@
+.headerLogo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    outline: none;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 450px;
+    padding: 28px 64px;
+}
+
+.navigation {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navigationLink {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    color: var(--main);
+    transition: color 0.3s ease;
+}
