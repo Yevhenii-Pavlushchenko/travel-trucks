@@ -1,31 +1,12 @@
 body{
-    font-family: --font-inter-sans;
-    margin: 0;
     font-family: "Inter", sans-serif;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ul,
-ol,
-li {
-    margin: 0;
-    padding: 0;
-}
-
-ul{
-    list-style-type: none;
-}
 
 :root {
     --main-black: #101828;
     --text: #475467;
-    --main-white: #ffffff;
+    --main-white: #fff;
     --white: #f7f7f7;
     --gray: #6c717b;
     --gray-light: #dadde1;

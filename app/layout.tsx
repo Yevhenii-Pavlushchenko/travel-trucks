@@ -1,8 +1,10 @@
 import "./globals.css";
 
 import { Inter } from "next/font/google";
+import "modern-normalize/modern-normalize.css";
 
 import type { Metadata } from "next";
+
 import TanstackProvider from "@/components/TanstackProvider/TanstackProvider";
 import Header from "@/components/Header/Header";
 
@@ -27,12 +29,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${interSans.variable}`}>
-      <TanstackProvider>
         <body>
-          <Header></Header>
+      <TanstackProvider>
+          <Header/>
           {children}
-        </body>
       </TanstackProvider>
+        </body>
       
     </html>
   );
