@@ -1,5 +1,21 @@
 body{
     font-family: --font-inter-sans;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li {
+    margin: 0;
+    padding: 0;
 }
 
 ul{
@@ -9,8 +25,8 @@ ul{
 :root {
     --main-black: #101828;
     --text: #475467;
-    --white: #ffffff;
-    --main-white: #f7f7f7;
+    --main-white: #ffffff;
+    --white: #f7f7f7;
     --gray: #6c717b;
     --gray-light: #dadde1;
     --rating: #ffc531;
