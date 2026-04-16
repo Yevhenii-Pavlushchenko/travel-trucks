@@ -1,76 +1,103 @@
-import Image from "next/image";
-import Button from "../Button/Button";
+"use client";
 import css from "./CampersList.module.css";
 
+import Image from "next/image";
+import { useInfiniteQuery } from "@tanstack/react-query";
+
+import Button from "../Button/Button";
+import { fetchCampers } from "../../lib/api";
+import { Camper } from "../../types/camper";
+
 export default function CampersList() {
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, status } =
+    useInfiniteQuery({
+      queryKey: ["campers-list"],
+      queryFn: ({ pageParam }) => fetchCampers({ pageParam }),
+      initialPageParam: 1,
+      getNextPageParam: (lastPage, allPages) => {
+        const loadedCount = allPages.length * 4;
+        return loadedCount < lastPage.total ? allPages.length + 1 : undefined;
+      },
+    });
+
+  if (status === "pending") return <p>Loading...</p>;
+  if (status === "error") return <p>Error loading data</p>;
+
+    const allCampers = data.pages.flatMap((page) => page.campers);
   return (
     <section className={css.camperList}>
       <h2 className={css.visuallyHidden}>The campers list</h2>
-      <article className={css.card}>
-        <div className={css.imageWraper}>
-          <Image
-            className={css.image}
-            src="/car1.jpg"
-            alt="Mavericks"
-            width={219}
-            height={240}
-          />
-        </div>
-
-        <div className={css.infoWraper}>
-          <div className={css.headWrapper}>
-            <h3 className={css.title}>Mavericks</h3>
-            <p className={css.price}>€8000</p>
+      
+          {allCampers.map((camper) => (
+        <article key={camper.id} className={css.card}>
+          <div className={css.imageWraper}>
+            <Image
+              className={css.image}
+              src={camper.coverImage}
+              alt={camper.name}
+              width={219}
+              height={240}
+            />
           </div>
 
-          {/* Рейтинг и Локация */}
-          <div className={css.meta}>
-            <span className={css.rating}>
-              <svg className={css.iconStar} width="16" height="16">
-                <use href="/sprite.svg#icon-star"></use>
-              </svg>
-              <span>4.4(2 Reviews)</span>
-            </span>
-            <span className={css.location}>
-              <svg className={css.iconMap} width="16" height="16">
-                <use href="/sprite.svg#icon-map"></use>
-              </svg>
-              <span>Kyiv, Ukraine</span>
-            </span>
+          <div className={css.infoWraper}>
+            <div className={css.headWrapper}>
+              <h3 className={css.title}>{camper.name}</h3>
+              <p className={css.price}>€{camper.price}</p>
+            </div>
+
+            {/* Рейтинг и Локация */}
+            <div className={css.meta}>
+              <span className={css.rating}>
+                <svg className={css.iconStar} width="16" height="16">
+                  <use href="/sprite.svg#icon-star"></use>
+                </svg>
+                <span>
+                  {camper.rating}({camper.totalReviews} Reviews)
+                </span>
+              </span>
+              <span className={css.location}>
+                <svg className={css.iconMap} width="16" height="16">
+                  <use href="/sprite.svg#icon-map"></use>
+                </svg>
+                <span>{camper.location}</span>
+              </span>
+            </div>
+
+            {/* Описание */}
+            <p className={css.description}>{camper.description}</p>
+
+            {/* Категории/Фишки (Трансмиссия, Топливо и т.д.) */}
+            <ul className={css.categories}>
+              <li className={css.categoryItem}>
+                <svg width="20" height="20">
+                  <use href="/sprite.svg#icon-fuel"></use>
+                </svg>
+                {camper.engine}
+              </li>
+              <li className={css.categoryItem}>
+                <svg width="20" height="20">
+                  <use href="/sprite.svg#icon-transmission"></use>
+                </svg>
+                {camper.transmission}
+              </li>
+              <li className={css.categoryItem}>
+                <svg width="20" height="20">
+                  <use href="/sprite.svg#icon-camper-form"></use>
+                </svg>
+                {camper.form}
+              </li>
+            </ul>
+
+            {/* Кнопка */}
+            <Button text="Show more" color="green" width={173} />
           </div>
-
-          {/* Описание */}
-          <p className={css.description}>
-            Embrace simplicity and freedom with the Mavericks panel truck...
-          </p>
-
-          {/* Категории/Фишки (Трансмиссия, Топливо и т.д.) */}
-          <ul className={css.categories}>
-            <li className={css.categoryItem}>
-              <svg width="20" height="20">
-                <use href="/sprite.svg#icon-fuel"></use>
-              </svg>
-              Petrol
-            </li>
-            <li className={css.categoryItem}>
-              <svg width="20" height="20">
-                <use href="/sprite.svg#icon-transmission"></use>
-              </svg>
-              Automatic
-            </li>
-            <li className={css.categoryItem}>
-              <svg width="20" height="20">
-                <use href="/sprite.svg#icon-camper-form"></use>
-              </svg>
-              Alcove
-            </li>
-          </ul>
-
-          {/* Кнопка */}
-          <Button text="Show more" color="green" width={173} />
-        </div>
-          </article>
-        <Button text="Load more" color="white" width={145}/>
+        </article>
+          ))}
+          {hasNextPage && (
+              <Button text="Load more" color="white" width={145} onClick={fetchNextPage} />
+          )}
+      
     </section>
   );
 }
