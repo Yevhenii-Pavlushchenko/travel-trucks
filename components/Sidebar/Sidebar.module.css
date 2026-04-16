@@ -87,18 +87,61 @@ font-weight: 400;
 }
 .radioGroup{
     display: flex;
-        flex-direction: column;
+    flex-direction: column;
 }
-.radioLabel{
-   
-}
-.radioInput{
-    margin-right: 8px;
-}
-.radioText{
 
+/*  Кастомный чекбокс */
+
+.radioLabel {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.radioInput {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.customRadio {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconEmpty {
+    color: var(--text);
+    transition: color var(--transition);
+}
+.iconDot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: var(--button-hover);
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity var(--transition), transform var(--transition);
+    pointer-events: none;
+}
+
+.radioInput:checked+.customRadio .iconDot {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.radioText {
     font-weight: 400;
-        font-size: 16px;
-        line-height: 1.5;
-        color: var(--main-black)
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--main-black);
 }

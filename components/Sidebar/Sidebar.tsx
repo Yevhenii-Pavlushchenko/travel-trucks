@@ -78,12 +78,24 @@ export default function Sidebar() {
                     onChange={() => category.setter(option)}
                     className={css.radioInput}
                   />
+                  <span className={css.customRadio}>
+                    <span className={css.customRadio}>
+                      <svg className={css.iconEmpty} width="24" height="24">
+                        <use href="/sprite.svg#icon-checkbox-empty"></use>
+                      </svg>
+
+                      <svg className={css.iconDot} width="24" height="24">
+                        <use href="/sprite.svg#icon-radio-dot"></use>
+                      </svg>
+                    </span>
+                  </span>
                   <span className={css.radioText}>{option}</span>
                 </label>
               ))}
             </div>
           </div>
         ))}
+              
       </div>
     </aside>
   );
