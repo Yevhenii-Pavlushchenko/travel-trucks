@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import css from "./Sidebar.module.css";
-import Image from "next/image";
+import Button from "../Button/Button";
 
 export default function Sidebar() {
   const [location, setLocation] = useState("");
@@ -35,6 +35,13 @@ export default function Sidebar() {
     },
   ];
 
+  const handleReset = () => {
+    setLocation("");
+    setForm("");
+    setEngine("");
+    setTransmission("");
+  };
+
   return (
     <aside className={css.sideBar}>
       <div className={css.locationWraper}>
@@ -43,13 +50,9 @@ export default function Sidebar() {
         </label>
 
         <div className={css.inputWraper}>
-          <Image
-            className={css.iconLocation}
-            src="/map.svg"
-            alt="icon map"
-            width={20}
-            height={20}
-          />
+          <svg className={css.iconLocation} width="20" height="20">
+            <use href="/sprite.svg#icon-map"></use>
+          </svg>
           <input
             id="location"
             type="text"
@@ -95,7 +98,16 @@ export default function Sidebar() {
             </div>
           </div>
         ))}
-              
+      </div>
+      <div className={css.btnWraper}>
+        <Button text="Search" color="green" width={312} />
+        <Button
+          text="Clear filters"
+          color="white"
+          width={312}
+          onClick={handleReset}
+          icon="icon-xxx"
+        />
       </div>
     </aside>
   );

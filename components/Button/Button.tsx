@@ -11,7 +11,7 @@ interface ButtonProps {
   width: number;
   onClick?: () => void;
   className?: string;
-  icon?: ReactNode;
+  icon?: string;
   type?: 'button';
 }
 
@@ -33,7 +33,11 @@ export default function Button({
           className={`${css.btn} ${css[color]} ${className || ""}`}
            style={{ width: `${width}px` }} 
     >
-      {icon && <span className={css.icon}>{icon}</span>}
+      {icon && (
+        <svg className={css.btnIcon} width="24" height="24">
+          <use href={`/sprite.svg#${icon}`}></use>
+        </svg>
+      )}
       {text}
     </button>
   );
