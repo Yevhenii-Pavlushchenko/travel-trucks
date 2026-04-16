@@ -4,21 +4,20 @@ import css from "./CampersList.module.css";
 
 export default function CampersList() {
   return (
-      <section className={css.camperList}>
-           <h2 className={css.visuallyHidden}>The campers list</h2>
-          <article className={css.card}>
-              
+    <section className={css.camperList}>
+      <h2 className={css.visuallyHidden}>The campers list</h2>
+      <article className={css.card}>
         <div className={css.imageWraper}>
-                  <Image
-                      className={css.image}
-                      src="/car1.jpg"
-                      alt="Mavericks"
-                      width={219}
-                      height={240} />
-              </div>
-              
-        <div className={css.infoWraper}>
+          <Image
+            className={css.image}
+            src="/car1.jpg"
+            alt="Mavericks"
+            width={219}
+            height={240}
+          />
+        </div>
 
+        <div className={css.infoWraper}>
           <div className={css.headWrapper}>
             <h3 className={css.title}>Mavericks</h3>
             <p className={css.price}>€8000</p>
@@ -29,7 +28,7 @@ export default function CampersList() {
             <span className={css.rating}>
               <svg className={css.iconStar} width="16" height="16">
                 <use href="/sprite.svg#icon-star"></use>
-                          </svg>
+              </svg>
               <span>4.4(2 Reviews)</span>
             </span>
             <span className={css.location}>
@@ -70,7 +69,8 @@ export default function CampersList() {
           {/* Кнопка */}
           <Button text="Show more" color="green" width={173} />
         </div>
-    </article>
+          </article>
+        <Button text="Load more" color="white" width={145}/>
     </section>
   );
 }
