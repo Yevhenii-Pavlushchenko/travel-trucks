@@ -8,11 +8,10 @@ import Sidebar from '@/components/Sidebar/Sidebar'
 export default function CatalogPage() {
     
     return (
-        <main>
+        <main className={css.container}>
                 <Sidebar/>
-            <section>
+            
                 <CampersList/>
-            </section>
             
         </main>
     )
