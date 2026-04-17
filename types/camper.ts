@@ -1,20 +1,6 @@
-export type CamperForm = "integrated" | "alcove" | "panel_van" | "semi_integrated";
+export type CamperForm = "panelTruck" | "fullyIntegrated" | "alcove"; 
 export type CamperTransmission = "automatic" | "manual";
 export type CamperEngine = "diesel" | "petrol" | "hybrid" | "electric";
-
-export type CamperAmenity = 
-
-  | "ac" 
-  | "bathroom" 
-  | "kitchen" 
-
-  | "tv" 
-  | "radio" 
-  | "refrigerator" 
-
-  | "microwave" 
-  | "gas" 
-  | "water";
 
 export interface Camper {
   id: string;
@@ -31,7 +17,8 @@ export interface Camper {
   consumption: string;
   transmission: CamperTransmission;
   engine: CamperEngine;
-  amenities: CamperAmenity[]; 
-  coverImage: string;         
+    amenities: string[]; 
+    coverImage: string;
+  gallery?: { thumb: string; original: string }[];
   totalReviews: number;       
 }
