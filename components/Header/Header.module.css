@@ -31,7 +31,7 @@
     transition: var(--transition)
 }
 
-.navigationLink:hover,
-.navigationLink:focus{
-    color: var(--text)
+.active{
+    color: var(--button);
+
 }

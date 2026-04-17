@@ -39,7 +39,18 @@ export default function CampersList({ filters = {} } : {filters?:CamperFilters }
   if (status === "pending") return <p>Loading...</p>;
   if (status === "error") return <p>Error loading data</p>;
 
-    const allCampers = data?.pages.flatMap((page) => page.campers || []) ?? [];
+  const allCampers = data?.pages.flatMap((page) => page.campers || []) ?? [];
+
+  if (status === "success" && allCampers.length === 0) {
+    return (
+      <div className={css.notFoundWraper}>
+        <div className={ css.wrapperImg}>
+           <Image src={'/nocamper.png'} alt="not found camper" width={200} height={200} />
+        <h3 className={css.notFoundTitle}>No results found!</h3>
+        </div>
+        <p className={css.notFoundDescr}> Please modify your search filters to find your perfect camper.</p>
+      </div>)
+  }
     
     const formatText = (text: string) => {
   if (!text) return "";
@@ -84,7 +95,7 @@ export default function CampersList({ filters = {} } : {filters?:CamperFilters }
             {/* Описание */}
             <p className={css.description}>{camper.description}</p>
 
-            {/* Категории/Фишки (Трансмиссия, Топливо и т.д.) */}
+            {/* Функционал*/}
             <ul className={css.categories}>
               <li className={css.categoryItem}>
                 <svg width="20" height="20">
@@ -106,7 +117,6 @@ export default function CampersList({ filters = {} } : {filters?:CamperFilters }
               </li>
             </ul>
 
-            {/* Кнопка */}
             <Button text="Show more" color="green" width={173} />
           </div>
         </article>
