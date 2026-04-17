@@ -4,6 +4,7 @@ import css from "./CampersList.module.css";
 import Image from "next/image";
 import { useInfiniteQuery } from "@tanstack/react-query";
 
+import { CamperFilters } from "@/types/filters";
 import Button from "../Button/Button";
 import { fetchCampers } from "../../lib/api";
 import { useState } from "react";
@@ -23,10 +24,11 @@ function CamperImage({ src, alt }: { src: string; alt: string }) {
     />
   );
 }
-export default function CampersList() {
+
+export default function CampersList({ filters = {} } : {filters?:CamperFilters }) {
   const { data, fetchNextPage, hasNextPage, status } = useInfiniteQuery({
-    queryKey: ["campers"],
-    queryFn: ({ pageParam }) => fetchCampers({ pageParam }),
+    queryKey: ["campers", filters],
+    queryFn: ({ pageParam }) => fetchCampers({ pageParam, filters }),
     initialPageParam: 1,
     getNextPageParam: (lastPage, allPages) => {
       const hasMore = lastPage?.campers?.length === 4;
@@ -37,7 +39,13 @@ export default function CampersList() {
   if (status === "pending") return <p>Loading...</p>;
   if (status === "error") return <p>Error loading data</p>;
 
-  const allCampers = data?.pages.flatMap((page) => page.campers || []) ?? [];
+    const allCampers = data?.pages.flatMap((page) => page.campers || []) ?? [];
+    
+    const formatText = (text: string) => {
+  if (!text) return "";
+  return text.charAt(0).toUpperCase() + text.slice(1).replace("_", " ");
+};
+
 
   return (
     <section className={css.camperList}>
@@ -82,19 +90,19 @@ export default function CampersList() {
                 <svg width="20" height="20">
                   <use href="/sprite.svg#icon-fuel"></use>
                 </svg>
-                {camper.engine}
+                {formatText(camper.engine)}
               </li>
               <li className={css.categoryItem}>
                 <svg width="20" height="20">
                   <use href="/sprite.svg#icon-transmission"></use>
                 </svg>
-                {camper.transmission}
+                {formatText(camper.transmission)}
               </li>
               <li className={css.categoryItem}>
                 <svg width="20" height="20">
                   <use href="/sprite.svg#icon-camper-form"></use>
                 </svg>
-                {camper.form}
+                {formatText(camper.form)}
               </li>
             </ul>
 

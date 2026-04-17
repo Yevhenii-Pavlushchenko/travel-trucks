@@ -1,4 +1,4 @@
-export type CamperForm = "panelTruck" | "fullyIntegrated" | "alcove"; 
+export type CamperForm = "integrated" | "panel_van" | "alcove"| "semi_integrated"; 
 export type CamperTransmission = "automatic" | "manual";
 export type CamperEngine = "diesel" | "petrol" | "hybrid" | "electric";
 

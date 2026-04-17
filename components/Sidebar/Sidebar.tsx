@@ -3,13 +3,39 @@
 import { useState } from "react";
 import css from "./Sidebar.module.css";
 import Button from "../Button/Button";
+import { CamperFilters } from "@/types/filters";
+import { CamperForm, CamperEngine, CamperTransmission } from "@/types/camper";
 
-export default function Sidebar() {
+interface SidebarProps {
+  onSearch: (filters: CamperFilters) => void;
+}
+
+export default function Sidebar({ onSearch}:SidebarProps) {
   const [location, setLocation] = useState("");
 
   const [form, setForm] = useState("");
   const [engine, setEngine] = useState("");
   const [transmission, setTransmission] = useState("");
+
+  const handleSearchClick = () => {
+
+    const formMap: Record<string, CamperForm> = {
+     "Alcove": "alcove",
+    "Panel Van": "panel_van",         
+    "Integrated": "integrated",       
+    "Semi Integrated": "semi_integrated",
+      };
+    
+    const filterData: CamperFilters = {
+      location: location.trim(),
+      form: form ? formMap[form] : undefined,
+      engine: engine ? (engine.toLowerCase() as CamperEngine) : undefined,
+      transmission: transmission ? (transmission.toLocaleLowerCase() as CamperTransmission) : undefined,
+    }
+  
+    onSearch(filterData)
+
+  }
 
   const filters = [
     {
@@ -40,6 +66,7 @@ export default function Sidebar() {
     setForm("");
     setEngine("");
     setTransmission("");
+    onSearch({})
   };
 
   return (
@@ -100,7 +127,7 @@ export default function Sidebar() {
         ))}
       </div>
       <div className={css.btnWraper}>
-        <Button text="Search" color="green" width={312} />
+        <Button text="Search" color="green" width={312}  onClick={handleSearchClick}/>
         <Button
           text="Clear filters"
           color="white"
