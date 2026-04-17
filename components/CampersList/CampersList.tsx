@@ -117,7 +117,12 @@ export default function CampersList({ filters = {} } : {filters?:CamperFilters }
               </li>
             </ul>
 
-            <Button text="Show more" color="green" width={173} />
+            <Button
+              text="Show more"
+              color="green"
+              width={173}
+              target="_blank"
+              href={`/catalog/${camper.id}`} />
           </div>
         </article>
       ))}

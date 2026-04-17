@@ -1,0 +1,31 @@
+.section {
+    max-width: 1244px;
+    margin: 0 auto;
+    padding: 40px 16px;
+}
+
+.mainContent {
+    display: flex;
+    gap: 40px;
+    /* Відступ між картинками та текстом */
+    align-items: flex-start;
+}
+
+
+.meta {
+    display: flex;
+    gap: 16px;
+    margin: 8px 0 16px;
+    font-size: 16px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 24px;
+}

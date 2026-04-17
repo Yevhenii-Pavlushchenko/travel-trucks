@@ -40,3 +40,13 @@ export const fetchCampers = async ({
     throw error;
   }
 };
+
+export const fetchCamperById = async (id: string): Promise<Camper> => {
+  try {
+    const { data } = await instance.get<Camper>(`/campers/${id}`);
+    return data;
+  } catch (error) {
+    console.error("Error fetching camper details:", error);
+    throw error;
+  }
+};

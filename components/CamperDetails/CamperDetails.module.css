@@ -1,0 +1,17 @@
+.meta {
+    display: flex;
+    gap: 16px;
+    margin: 8px 0 16px;
+    font-size: 16px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 24px;
+}

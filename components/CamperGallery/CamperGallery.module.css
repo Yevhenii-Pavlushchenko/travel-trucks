@@ -1,0 +1,24 @@
+.swiperWrapper {
+    flex: 0 0 600px;
+    /* Задай фиксированную ширину левой колонки */
+    min-width: 0;
+    /* ОБЯЗАТЕЛЬНО: это лечит исчезновение Swiper */
+
+}
+
+.infoWraper {
+    flex: 1;
+    /* Текст займає решту простору */
+}
+
+.mainSwiper {
+    width: 100%;
+    height: 448px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+}
+
+.thumbsSwiper {
+    width: 100%;
+    height: 95px;
+}
