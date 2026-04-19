@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Camper } from "../types/camper";
+import { Camper, Review } from "../types/camper";
 import { CamperFilters } from "../types/filters";
 
 const instance = axios.create({
@@ -47,6 +47,16 @@ export const fetchCamperById = async (id: string): Promise<Camper> => {
     return data;
   } catch (error) {
     console.error("Error fetching camper details:", error);
+    throw error;
+  }
+};
+
+export const fetchCamperReviews = async (id: string): Promise<Review[]> => {
+  try {
+    const { data } = await instance.get<Review[]>(`/campers/${id}/reviews`);
+    return data;
+  } catch (error) {
+    console.error("Error fetching reviews:", error);
     throw error;
   }
 };
