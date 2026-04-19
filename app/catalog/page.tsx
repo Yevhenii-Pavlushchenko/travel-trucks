@@ -19,7 +19,6 @@ export default function CatalogPage() {
     return (
         <main className={css.container}>
                 <Sidebar onSearch={handleSearch}/>
-            
                 <CampersList filters={activeFilters}/>
             
         </main>

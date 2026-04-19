@@ -43,8 +43,8 @@ export default function CamperDetails({ camper }: { camper: Camper }) {
             </li>
             {camper.amenities.map((item) => (
               <li key={item} className={css.amenitiesItem}>
-                {item === "ac"
-                  ? "AC"
+                {item.length <= 2 
+                  ? item.toLocaleUpperCase()
                   : item.charAt(0).toUpperCase() + item.slice(1)}
               </li>
             ))}

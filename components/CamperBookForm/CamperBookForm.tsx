@@ -37,7 +37,10 @@ export default function CamperBookForm() {
     { resetForm }: FormikHelpers<BookingFormValues>,
   ) => {
     try {
-      const dataToSend = { ...values, camperId };
+        const dataToSend = { ...values, camperId };
+
+        console.log("Sending data:", dataToSend);
+        
       await sendBookingData(dataToSend);
       toast.success("Camper booked successfully!");
       resetForm();
@@ -47,7 +50,8 @@ export default function CamperBookForm() {
   };
 
   return (
-    <div className={css.formContainer}>
+      <div className={css.formContainer}>
+     <Toaster position="top-right" reverseOrder={false}/>
       <h3 className={css.title}>Book your campervan now</h3>
       <p className={css.subtitle}>
         Stay connected! We are always ready to help you.

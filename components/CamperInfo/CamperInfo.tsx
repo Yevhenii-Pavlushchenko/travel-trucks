@@ -1,4 +1,5 @@
 import css from "./CamperInfo.module.css";
+
 import CamperGallery from "../CamperGallery/CamperGallery";
 import CamperDetails from "../CamperDetails/CamperDetails";
 import { Camper } from "@/types/camper";
