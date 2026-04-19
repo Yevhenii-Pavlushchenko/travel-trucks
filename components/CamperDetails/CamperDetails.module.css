@@ -1,3 +1,8 @@
+.infoWraper{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
 .meta {
     display: flex;
     flex-direction: column;
@@ -57,4 +62,51 @@
         font-size: 16px;
         line-height: 1.5;
         color: var(--text);
+}
+
+.detailsWrapper{
+    display: flex;
+    flex-direction: column;
+
+    gap: 16px;
+    padding: 24px;
+    border-radius: 16px;
+
+    background: var(--white);
+
+
+}
+
+.detailsTitle{
+font-weight: 600;
+    font-size: 24px;
+    line-height: 1.33333;
+    color: var(--main-black);
+}
+
+.amenitiesList{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+gap: 8px;
+padding-bottom: 16px;
+border-bottom:  1px solid #dadde1; ;
+}
+
+.amenitiesItem{
+    
+    padding: 12px 18px;
+    border-radius: 100px;
+    background-color: var(--button-gas);
+}
+
+.parametersList{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.parametersListItem{
+    display: flex;
+    justify-content: space-between;
 }
