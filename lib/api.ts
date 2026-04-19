@@ -1,15 +1,10 @@
 import axios from "axios";
-import { Camper, Review } from "../types/camper";
-import { CamperFilters } from "../types/filters";
+import { Camper, Review,BookingData } from "../types/camper";
+import { CamperFilters, fetchCampersResponse } from "../types/filters";
 
 const instance = axios.create({
   baseURL: "https://campers-api.goit.study",
 });
-
-export interface fetchCampersResponse {
-  campers: Camper[];
-  total: number;
-}
 
 export const fetchCampers = async ({
   pageParam = 1,
@@ -60,3 +55,14 @@ export const fetchCamperReviews = async (id: string): Promise<Review[]> => {
     throw error;
   }
 };
+
+export const sendBookingData = async (data: BookingData): Promise<void> => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("Дані успішно «відправлені» на сервер:", data);
+      resolve();
+    }, 1000);
+  });
+};
+
+
