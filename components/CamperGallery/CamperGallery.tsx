@@ -22,6 +22,7 @@ export default function CamperGallery({ gallery, name }: GalleryProps) {
   return (
     <div className={css.swiperWrapper}>
       <Swiper
+        loop={true}
         spaceBetween={10}
         navigation={true}
         thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
@@ -37,7 +38,8 @@ export default function CamperGallery({ gallery, name }: GalleryProps) {
 
       <Swiper
         onSwiper={setThumbsSwiper}
-        spaceBetween={10}
+        loop={true}
+        spaceBetween={32}
         slidesPerView={4}
         freeMode={true}
         watchSlidesProgress={true}
@@ -46,7 +48,7 @@ export default function CamperGallery({ gallery, name }: GalleryProps) {
       >
         {gallery.map((img, index) => (
           <SwiperSlide key={index}>
-            <Image src={img.thumb} alt="thumb" width={150} height={95} className={css.thumbImg} />
+            <Image src={img.thumb} alt="thumb" width={135} height={145} className={css.thumbImg} />
           </SwiperSlide>
         ))}
       </Swiper>

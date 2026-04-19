@@ -6,8 +6,7 @@
 
 .mainContent {
     display: flex;
-    gap: 40px;
-    /* Відступ між картинками та текстом */
+    gap: 24px;
     align-items: flex-start;
 }
 

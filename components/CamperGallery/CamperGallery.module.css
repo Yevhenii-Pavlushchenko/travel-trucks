@@ -1,24 +1,34 @@
 .swiperWrapper {
-    flex: 0 0 600px;
-    /* Задай фиксированную ширину левой колонки */
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+    flex: 0 0 638px;
     min-width: 0;
-    /* ОБЯЗАТЕЛЬНО: это лечит исчезновение Swiper */
 
 }
 
 .infoWraper {
     flex: 1;
-    /* Текст займає решту простору */
 }
 
 .mainSwiper {
-    width: 100%;
-    height: 448px;
-    border-radius: 10px;
-    margin-bottom: 8px;
+    width: 638px;
+    height: 505px;
+    border-radius: 17px;
 }
 
+.mainSwiper :global(.swiper-button-next),
+.mainSwiper :global(.swiper-button-prev) {
+    color: var(--gray-light);
+}
+
+
 .thumbsSwiper {
+
     width: 100%;
-    height: 95px;
+}
+
+.thumbImg{
+    border-radius: 16px;
+    object-fit: cover;
 }
