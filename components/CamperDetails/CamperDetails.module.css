@@ -1,17 +1,60 @@
 .meta {
     display: flex;
-    gap: 16px;
-    margin: 8px 0 16px;
-    font-size: 16px;
+    flex-direction: column;
+    padding: 24px;
+    background-color: var(--white);
+    border-radius: 16px;
+
 }
 
 .title {
     font-size: 24px;
     font-weight: 600;
+    line-height: 1.33333;
+    color: var(--main-black);
+    margin-bottom: 8px;
+}
+
+.raringWraper{
+    display: flex;
+    gap: 16px;
+}
+
+.rating{
+    display:flex;
+    justify-content: center;
+    gap: 4px;
+
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--main-black);
+    margin-bottom: 16px;
+    
+}
+
+.ratingIcon{
+    fill: var(--rating);
+}
+
+.ratingText{
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.location{
+    display: flex;
+    gap: 4px;
 }
 
 .price {
     font-size: 24px;
     font-weight: 600;
+    line-height: 1.33333;
     margin-bottom: 24px;
+}
+.description{
+    font-weight: 400;
+        font-size: 16px;
+        line-height: 1.5;
+        color: var(--text);
 }

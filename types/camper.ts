@@ -2,6 +2,11 @@ export type CamperForm = "integrated" | "panel_van" | "alcove"| "semi_integrated
 export type CamperTransmission = "automatic" | "manual";
 export type CamperEngine = "diesel" | "petrol" | "hybrid" | "electric";
 
+export interface GalleryItem {
+  thumb: string;
+  original: string;
+}
+
 export interface Camper {
   id: string;
   name: string;
@@ -19,6 +24,6 @@ export interface Camper {
   engine: CamperEngine;
     amenities: string[]; 
     coverImage: string;
-  gallery?: { thumb: string; original: string }[];
+  gallery?: GalleryItem[]
   totalReviews: number;       
 }
