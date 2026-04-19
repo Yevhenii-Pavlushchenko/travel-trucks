@@ -1,7 +1,6 @@
 .section {
-    max-width: 1244px;
-    margin: 0 auto;
-    padding: 40px 16px;
+    padding: 40px 64px 0px 64px;
+    padding-top: 40px;
 }
 
 .mainContent {

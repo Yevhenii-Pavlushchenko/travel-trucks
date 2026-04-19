@@ -22,7 +22,7 @@ export default function CamperDetailsPage() {
   return (
     <main className={css.container}>
     { <CamperInfo camper={camper} /> }
-      {/* {<CamperReviews camper={camper} />} */}
+      {<CamperReviews camper={camper} />}
     </main>
   );
 }
