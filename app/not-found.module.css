@@ -3,10 +3,9 @@
     justify-content: center;
     align-items: center;
     min-height: calc(100vh - 72px);
-    /* Мінус висота хедера */
     text-align: center;
     padding: 20px;
-    background-color: var(--white);
+    background-color: var(--main-white);
 }
 
 .content {
