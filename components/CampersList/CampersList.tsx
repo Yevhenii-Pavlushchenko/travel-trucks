@@ -3,11 +3,12 @@ import css from "./CampersList.module.css";
 
 import Image from "next/image";
 import { useInfiniteQuery } from "@tanstack/react-query";
+import { useState } from "react";
 
 import { CamperFilters } from "@/types/filters";
-import Button from "../Button/Button";
 import { fetchCampers } from "../../lib/api";
-import { useState } from "react";
+import Button from "../Button/Button";
+import Loader from "../Loader/Loader"; 
 
 function CamperImage({ src, alt }: { src: string; alt: string }) {
   const [imgSrc, setImgSrc] = useState(src || "/nocamper.png");
@@ -26,7 +27,7 @@ function CamperImage({ src, alt }: { src: string; alt: string }) {
 }
 
 export default function CampersList({ filters = {} } : {filters?:CamperFilters }) {
-  const { data, fetchNextPage, hasNextPage, status } = useInfiniteQuery({
+  const { data, fetchNextPage, hasNextPage, status, isFetchingNextPage } = useInfiniteQuery({
     queryKey: ["campers", filters],
     queryFn: ({ pageParam }) => fetchCampers({ pageParam, filters }),
     initialPageParam: 1,
@@ -36,7 +37,7 @@ export default function CampersList({ filters = {} } : {filters?:CamperFilters }
     },
   });
 
-  if (status === "pending") return <p>Loading...</p>;
+  if (status === "pending") return <Loader/>;
   if (status === "error") return <p>Error loading data</p>;
 
   const allCampers = data?.pages.flatMap((page) => page.campers || []) ?? [];
@@ -127,12 +128,18 @@ export default function CampersList({ filters = {} } : {filters?:CamperFilters }
         </article>
       ))}
       {hasNextPage && (
-        <Button
-          text="Load more"
-          color="white"
-          width={145}
-          onClick={fetchNextPage}
-        />
+        <div className={css.loadMoreContainer}>
+          {isFetchingNextPage ? (
+            <Loader /> 
+          ) : (
+            <Button
+              text="Load more"
+              color="white"
+              width={145}
+              onClick={fetchNextPage}
+            />
+          )}
+        </div>
       )}
     </section>
   );
