@@ -3,8 +3,6 @@
 import { useRouter } from "next/navigation";
 import css from "./page.module.css";
 
-
-
 import Button from "@/components/Button/Button";
 
 export default function Home() {

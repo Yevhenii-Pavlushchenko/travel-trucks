@@ -1,6 +1,6 @@
 "use client";
 
-import css from "./Button.module.css"
+import css from "./Button.module.css";
 import Link from "next/link";
 
 export type ButtonColor = "green" | "white";
@@ -13,7 +13,7 @@ interface ButtonProps {
   className?: string;
   icon?: string;
   type?: "button" | "submit" | "reset";
-  href?: string;      
+  href?: string;
   target?: string;
 }
 
@@ -25,10 +25,9 @@ export default function Button({
   className,
   icon,
   type,
-   href,
+  href,
   target,
 }: ButtonProps) {
-
   const btnClassName = `${css.btn} ${css[color]} ${className || ""}`;
   const btnStyle = { width: `${width}px` };
 
@@ -45,10 +44,10 @@ export default function Button({
 
   if (href) {
     return (
-      <Link 
-        href={href} 
-        target={target} 
-        className={btnClassName} 
+      <Link
+        href={href}
+        target={target}
+        className={btnClassName}
         style={btnStyle}
         rel={target === "_blank" ? "noopener noreferrer" : undefined}
       >

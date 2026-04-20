@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Camper, Review,BookingData } from "../types/camper";
+import { Camper, Review, BookingData } from "../types/camper";
 import { CamperFilters, fetchCampersResponse } from "../types/filters";
 
 const instance = axios.create({
@@ -11,21 +11,20 @@ export const fetchCampers = async ({
   filters = {},
 }: {
   pageParam?: number;
-  filters?: CamperFilters; 
+  filters?: CamperFilters;
 }): Promise<fetchCampersResponse> => {
   try {
-
     const activeFilters = Object.fromEntries(
       Object.entries(filters).filter(
-        ([_, value]) => value !== undefined && value !== ""
-      )
+        ([_, value]) => value !== undefined && value !== "",
+      ),
     );
 
     const { data } = await instance.get<fetchCampersResponse>("/campers", {
       params: {
         ...activeFilters,
         page: pageParam,
-        perPage: 4, 
+        perPage: 4,
       },
     });
 
@@ -64,5 +63,3 @@ export const sendBookingData = async (data: BookingData): Promise<void> => {
     }, 1000);
   });
 };
-
-

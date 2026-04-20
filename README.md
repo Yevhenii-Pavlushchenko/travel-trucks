@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚐 Travel Trucks — Оренда Кемперів
 
-## Getting Started
+Проєкт для пошуку та бронювання будинків на колесах (кемперів) по всій Україні. Знаходьте ідеальний транспорт для вашої наступної подорожі за допомогою зручного каталогу та системи фільтрації.
 
-First, run the development server:
+## 🌟 Основні функції
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Каталог кемперів**: Перегляд повного списку доступних автомобілів з пагінацією ("Load More").
+- **Детальні описи**: Сторінка кожного кемпера з галереєю фото, технічними характеристиками та відгуками користувачів.
+- **Розумна фільтрація**: Пошук за локацією, типом кузова та наявністю зручностей (AC, кухня, TV тощо).
+- **Динамічне SEO**: Метадані для кожної сторінки та підтримка Open Graph для кращого відображення в соцмережах.
+- **Адаптивний дизайн**: Коректна робота на десктопах та мобільних пристроях (включаючи підтримку Retina дисплеїв).
+- **Обробка станів**: Анімовані лоадери (кастомний автобус з колесом) та стилізована сторінка 404.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠 Технологічний стек
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework**: [Next.js 16 (App Router)](https://nextjs.org) — серверний рендеринг та оптимізація.
+- **State Management**:
+  - [TanStack Query v5](https://tanstack.com) — асинхронні запити та кешування даних.
+  - [Zustand](https://pmnd.rs) — легкий та швидкий глобальний стейт-менеджмент (для обраних кемперів).
+- **Forms & Validation**:
+  - [Formik](https://formik.org) — робота з формами бронювання.
+  - [Yup](https://github.com) — валідація схем даних.
+- **HTTP Client**: [Axios](https://axios-http.com) — надійна робота з API запитами.
+- **UI Components & Effects**:
+  - [Swiper](https://swiperjs.com) — сучасний слайдер для галереї зображень.
+  - [React Hot Toast](https://react-hot-toast.com) — стильні та легкі сповіщення.
+  - [Modern Normalize](https://github.com) — скидання CSS-стилів для кросбраузерності.
+- **Styling**: CSS Modules — ізольовані стилі для кожного компонента.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+📂 Структура проекту
+/app — маршрутизація, сторінки та глобальні лейаути.
+/components — багаторазові React-компоненти (Loader, Button, Sidebar тощо).
+/lib — конфігурація API (Axios instance) та функції запитів.
+/public — статичні активи (іконки, логотипи).
+/types — описи TypeScript інтерфейсів.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+👤 Автор
+Євгеній Палущенко
+GitHub: https://github.com/Yevhenii-Pavlushchenko
+LinkedIn: https://www.linkedin.com/in/yevhenii-pavlushchenko/

@@ -1,14 +1,12 @@
-'use client'
+"use client";
 
 import css from "./Header.module.css";
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import clsx from "clsx";
 
 export default function Header() {
-
   const pathname = usePathname();
   return (
     <header className={css.header}>
@@ -23,10 +21,18 @@ export default function Header() {
       <nav aria-label="Main Navigation">
         <ul className={css.navigation}>
           <li className={css.navigationItem}>
-            <Link className={css.navigationLink} href="/">Home</Link>
+            <Link className={css.navigationLink} href="/">
+              Home
+            </Link>
           </li>
           <li className={css.navigationItem}>
-            <Link className={`${css.navigationLink} ${pathname === "/catalog" ? css.active : ""}`} href="/catalog">Catalog</Link>
+            <Link
+              className={`${css.navigationLink}
+               ${pathname === "/catalog" ? css.active : ""}`}
+              href="/catalog"
+            >
+              Catalog
+            </Link>
           </li>
         </ul>
       </nav>

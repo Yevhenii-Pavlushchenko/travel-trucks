@@ -11,18 +11,23 @@ import CamperReviews from "@/components/CamperReviews/CamperReviews";
 export default function CamperDetailsPage() {
   const { camperId } = useParams();
 
-  const { data: camper, isLoading, isError } = useQuery({
+  const {
+    data: camper,
+    isLoading,
+    isError,
+  } = useQuery({
     queryKey: ["camper", camperId],
     queryFn: () => fetchCamperById(camperId as string),
   });
 
   if (isLoading) return <div className={css.loader}>Loading...</div>;
-  if (isError || !camper) return <div className={css.error}>Camper not found!</div>;
+  if (isError || !camper)
+    return <div className={css.error}>Camper not found!</div>;
 
   return (
     <main className={css.container}>
-    { <CamperInfo camper={camper} /> }
-      {<CamperReviews/>}
+      {<CamperInfo camper={camper} />}
+      {<CamperReviews />}
     </main>
   );
 }

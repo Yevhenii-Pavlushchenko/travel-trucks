@@ -9,14 +9,18 @@ import { fetchCamperReviews } from "@/lib/api";
 export default function CamperFeedbacks() {
   const { camperId } = useParams<{ camperId: string }>();
 
-  const { data: reviews, isLoading, isError } = useQuery({
+  const {
+    data: reviews,
+    isLoading,
+    isError,
+  } = useQuery({
     queryKey: ["camperReviews", camperId],
     queryFn: () => fetchCamperReviews(camperId),
     enabled: !!camperId,
   });
-    
-console.log("Current ID from URL:", camperId);
-console.log("Data from API:", reviews);
+
+  console.log("Current ID from URL:", camperId);
+  console.log("Data from API:", reviews);
 
   if (isLoading) return <p>Loading reviews...</p>;
   if (isError) return <p>Error loading reviews</p>;
@@ -34,7 +38,16 @@ console.log("Data from API:", reviews);
               <p className={css.name}>{feedback.reviewer_name}</p>
               <div className={css.stars}>
                 {[...Array(5)].map((_, i) => (
-                  <svg key={i} width="16" height="16" className={i < feedback.reviewer_rating ? css.starActive : css.starEmpty}>
+                  <svg
+                    key={i}
+                    width="16"
+                    height="16"
+                    className={
+                      i < feedback.reviewer_rating
+                        ? css.starActive
+                        : css.starEmpty
+                    }
+                  >
                     <use href="/sprite.svg#icon-star"></use>
                   </svg>
                 ))}

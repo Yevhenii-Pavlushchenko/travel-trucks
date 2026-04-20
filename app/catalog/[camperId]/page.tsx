@@ -38,5 +38,5 @@ export default async function Page({ params }: Props) {
   if (!camper) {
     notFound();
   }
-  return <CamperView />
+  return <CamperView />;
 }

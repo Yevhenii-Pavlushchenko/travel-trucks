@@ -32,7 +32,6 @@
 .bus {
     margin-bottom: -40px;
     z-index: 1;
-    /* Додамо ефект розгойдування, ніби автобус їде */
     animation: drive 3s ease-in-out infinite;
 }
 
@@ -40,7 +39,7 @@
     font-size: 32px;
     font-weight: 600;
     margin-bottom: 16px;
-    color: var(--main);
+    color: var(--main-black);
 }
 
 .text {
@@ -58,7 +57,7 @@
     border-radius: 200px;
     text-decoration: none;
     font-weight: 500;
-    transition: background-color 0.3s ease;
+    transition: var(--transition);
 }
 
 .backLink:hover {

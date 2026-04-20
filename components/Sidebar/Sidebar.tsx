@@ -1,16 +1,17 @@
 "use client";
+import css from "./Sidebar.module.css";
 
 import { useState } from "react";
-import css from "./Sidebar.module.css";
-import Button from "../Button/Button";
+
 import { CamperFilters } from "@/types/filters";
 import { CamperForm, CamperEngine, CamperTransmission } from "@/types/camper";
+import Button from "../Button/Button";
 
 interface SidebarProps {
   onSearch: (filters: CamperFilters) => void;
 }
 
-export default function Sidebar({ onSearch}:SidebarProps) {
+export default function Sidebar({ onSearch }: SidebarProps) {
   const [location, setLocation] = useState("");
 
   const [form, setForm] = useState("");
@@ -18,24 +19,24 @@ export default function Sidebar({ onSearch}:SidebarProps) {
   const [transmission, setTransmission] = useState("");
 
   const handleSearchClick = () => {
-
     const formMap: Record<string, CamperForm> = {
-     "Alcove": "alcove",
-    "Panel Van": "panel_van",         
-    "Integrated": "integrated",       
-    "Semi Integrated": "semi_integrated",
-      };
-    
+      Alcove: "alcove",
+      "Panel Van": "panel_van",
+      Integrated: "integrated",
+      "Semi Integrated": "semi_integrated",
+    };
+
     const filterData: CamperFilters = {
       location: location.trim(),
       form: form ? formMap[form] : undefined,
       engine: engine ? (engine.toLowerCase() as CamperEngine) : undefined,
-      transmission: transmission ? (transmission.toLocaleLowerCase() as CamperTransmission) : undefined,
-    }
-  
-    onSearch(filterData)
+      transmission: transmission
+        ? (transmission.toLocaleLowerCase() as CamperTransmission)
+        : undefined,
+    };
 
-  }
+    onSearch(filterData);
+  };
 
   const filters = [
     {
@@ -66,7 +67,7 @@ export default function Sidebar({ onSearch}:SidebarProps) {
     setForm("");
     setEngine("");
     setTransmission("");
-    onSearch({})
+    onSearch({});
   };
 
   return (
@@ -127,7 +128,12 @@ export default function Sidebar({ onSearch}:SidebarProps) {
         ))}
       </div>
       <div className={css.btnWraper}>
-        <Button text="Search" color="green" width={312}  onClick={handleSearchClick}/>
+        <Button
+          text="Search"
+          color="green"
+          width={312}
+          onClick={handleSearchClick}
+        />
         <Button
           text="Clear filters"
           color="white"

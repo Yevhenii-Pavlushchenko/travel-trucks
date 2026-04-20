@@ -43,7 +43,7 @@ export default function CamperDetails({ camper }: { camper: Camper }) {
             </li>
             {camper.amenities.map((item) => (
               <li key={item} className={css.amenitiesItem}>
-                {item.length <= 2 
+                {item.length <= 2
                   ? item.toLocaleUpperCase()
                   : item.charAt(0).toUpperCase() + item.slice(1)}
               </li>
@@ -53,24 +53,33 @@ export default function CamperDetails({ camper }: { camper: Camper }) {
             <li className={css.parametersListItem}>
               <span className={css.parameterName}>Form</span>
               <span className={css.parameterValue}>
-                {camper.form.charAt(0).toUpperCase() + camper.form.slice(1).replace("_", " ")}
+                {camper.form.charAt(0).toUpperCase() +
+                  camper.form.slice(1).replace("_", " ")}
               </span>
             </li>
             <li className={css.parametersListItem}>
               <span className={css.parameterName}>Length</span>
-              <span className={css.parameterValue}>{formatValue(camper.length)}</span>
+              <span className={css.parameterValue}>
+                {formatValue(camper.length)}
+              </span>
             </li>
             <li className={css.parametersListItem}>
               <span className={css.parameterName}>Width</span>
-              <span className={css.parameterValue}>{formatValue(camper.width)}</span>
+              <span className={css.parameterValue}>
+                {formatValue(camper.width)}
+              </span>
             </li>
             <li className={css.parametersListItem}>
               <span className={css.parameterName}>Height</span>
-              <span className={css.parameterValue}>{formatValue(camper.height)}</span>
+              <span className={css.parameterValue}>
+                {formatValue(camper.height)}
+              </span>
             </li>
             <li className={css.parametersListItem}>
               <span className={css.parameterName}>Tank</span>
-              <span className={css.parameterValue}>{formatValue(camper.tank)}</span>
+              <span className={css.parameterValue}>
+                {formatValue(camper.tank)}
+              </span>
             </li>
             <li className={css.parametersListItem}>
               <span className={css.parameterName}>Consumption</span>

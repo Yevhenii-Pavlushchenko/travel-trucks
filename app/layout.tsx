@@ -11,15 +11,14 @@ import Header from "@/components/Header/Header";
 const interSans = Inter({
   variable: "--font-inter-sans",
   subsets: ["latin"],
-
 });
 
 export const metadata: Metadata = {
   title: "Travel Trucks",
   description: "Application for truck rental",
   icons: {
-    icon:'/minibus-icon.svg'
-  }
+    icon: "/minibus-icon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -29,13 +28,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${interSans.variable}`}>
-        <body>
-      <TanstackProvider>
-          <Header/>
+      <body>
+        <TanstackProvider>
+          <Header />
           {children}
-      </TanstackProvider>
-        </body>
-      
+        </TanstackProvider>
+      </body>
     </html>
   );
 }
