@@ -10,12 +10,19 @@
     linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)), 
      url('../public/hero.png');
     background-repeat: no-repeat;
-    /* background-size: 120% auto; */
     background-size: cover;
     background-position: center;
-
-
 }
+
+@media (min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .hero {
+        background-image:
+            linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)),
+            url('/hero2x.png');
+    }
+}
+
 .container{
   max-width: 1440px;
   width: 100%;
