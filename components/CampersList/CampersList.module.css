@@ -23,6 +23,9 @@
   gap: 24px;
   padding: 24px;
   width: 100%;
+  background: var(--white);
+  border-radius: 16px;
+
 }
 .imageWraper {
   flex-shrink: 0;
