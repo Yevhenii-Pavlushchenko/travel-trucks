@@ -1,15 +1,16 @@
-.headerLogo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  outline: none;
-}
-
 .header {
   display: flex;
   align-items: center;
   gap: 450px;
   padding: 24px 64px;
+  background-color: var(--white);
+}
+
+.headerLogo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  outline: none;
 }
 
 .navigation {

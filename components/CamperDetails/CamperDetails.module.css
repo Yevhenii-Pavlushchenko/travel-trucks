@@ -3,10 +3,12 @@
   flex-direction: column;
   gap: 16px;
   width: 650px;
+  
 }
 .meta {
   display: flex;
   flex-direction: column;
+  min-height: 304px;
   padding: 24px;
   background-color: var(--white);
   border-radius: 16px;
@@ -20,7 +22,7 @@
   margin-bottom: 8px;
 }
 
-.raringWraper {
+.ratingWraper {
   display: flex;
   gap: 16px;
 }

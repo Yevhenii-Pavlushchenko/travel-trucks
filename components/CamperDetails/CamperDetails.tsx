@@ -11,7 +11,7 @@ export default function CamperDetails({ camper }: { camper: Camper }) {
       <div className={css.infoWraper}>
         <div className={css.meta}>
           <h2 className={css.title}>{camper.name}</h2>
-          <div className={css.raringWraper}>
+          <div className={css.ratingWraper}>
             <div className={css.rating}>
               <svg className={css.ratingIcon} width="16" height="16">
                 <use href="/sprite.svg#icon-star"></use>

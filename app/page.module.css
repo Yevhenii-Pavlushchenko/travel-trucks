@@ -1,6 +1,6 @@
 .hero{
     box-sizing: border-box;
-
+    width: 100%;
     min-height: calc(100vh - 72px);
     padding-top: 284px;
     padding-left: 64px;

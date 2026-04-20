@@ -1,40 +1,70 @@
-# 🚐 Travel Trucks — Оренда Кемперів
+# 🚐 Travel Trucks — Camper Rental Service
 
-Проєкт для пошуку та бронювання будинків на колесах (кемперів) по всій Україні. Знаходьте ідеальний транспорт для вашої наступної подорожі за допомогою зручного каталогу та системи фільтрації.
+A web application for searching and booking motorhomes (campers) across Ukraine. Find the perfect vehicle for your next adventure using a convenient catalog and an advanced filtration system.
 
-## 🌟 Основні функції
+## 🌟 Key Features
 
-- **Каталог кемперів**: Перегляд повного списку доступних автомобілів з пагінацією ("Load More").
-- **Детальні описи**: Сторінка кожного кемпера з галереєю фото, технічними характеристиками та відгуками користувачів.
-- **Розумна фільтрація**: Пошук за локацією, типом кузова та наявністю зручностей (AC, кухня, TV тощо).
-- **Динамічне SEO**: Метадані для кожної сторінки та підтримка Open Graph для кращого відображення в соцмережах.
-- **Адаптивний дизайн**: Коректна робота на десктопах та мобільних пристроях (включаючи підтримку Retina дисплеїв).
-- **Обробка станів**: Анімовані лоадери (кастомний автобус з колесом) та стилізована сторінка 404.
+- **Camper Catalog**: View a full list of available vehicles with smooth pagination ("Load More").
+- **Detailed Descriptions**: Individual pages for each camper featuring a photo gallery, technical specifications, and user reviews.
+- **Smart Filtration**: Search by location, body type, and specific amenities (AC, Kitchen, TV, etc.).
+- **Dynamic SEO**: Individual metadata for every page and Open Graph support for enhanced social media sharing.
+- **Responsive Design**: Fully optimized for desktops and mobile devices (including Retina display support).
+- **State Handling**: Custom animated loaders (branded bus with a spinning wheel) and a stylized 404 error page.
 
-## 🛠 Технологічний стек
+## 🛠 Tech Stack
 
-- **Framework**: [Next.js 16 (App Router)](https://nextjs.org) — серверний рендеринг та оптимізація.
+- **Framework**: [Next.js 16 (App Router)](https://nextjs.org) — server-side rendering and performance optimization.
 - **State Management**:
-  - [TanStack Query v5](https://tanstack.com) — асинхронні запити та кешування даних.
-  - [Zustand](https://pmnd.rs) — легкий та швидкий глобальний стейт-менеджмент (для обраних кемперів).
+  - [TanStack Query v5](https://tanstack.com) — asynchronous requests and data caching.
+  - [Zustand](https://pmnd.rs) — lightweight and fast global state management (for favorite campers).
 - **Forms & Validation**:
-  - [Formik](https://formik.org) — робота з формами бронювання.
-  - [Yup](https://github.com) — валідація схем даних.
-- **HTTP Client**: [Axios](https://axios-http.com) — надійна робота з API запитами.
+  - [Formik](https://formik.org) — handling booking forms.
+  - [Yup](https://github.com) — schema-based data validation.
+- **HTTP Client**: [Axios](https://axios-http.com) — reliable API communication.
 - **UI Components & Effects**:
-  - [Swiper](https://swiperjs.com) — сучасний слайдер для галереї зображень.
-  - [React Hot Toast](https://react-hot-toast.com) — стильні та легкі сповіщення.
-  - [Modern Normalize](https://github.com) — скидання CSS-стилів для кросбраузерності.
-- **Styling**: CSS Modules — ізольовані стилі для кожного компонента.
+  - [Swiper](https://swiperjs.com) — modern slider for image galleries.
+  - [React Hot Toast](https://react-hot-toast.com) — stylish and lightweight notifications.
+  - [Modern Normalize](https://github.com) — CSS reset for cross-browser consistency.
+- **Styling**: CSS Modules — isolated styles for each component.
 
-📂 Структура проекту
-/app — маршрутизація, сторінки та глобальні лейаути.
-/components — багаторазові React-компоненти (Loader, Button, Sidebar тощо).
-/lib — конфігурація API (Axios instance) та функції запитів.
-/public — статичні активи (іконки, логотипи).
-/types — описи TypeScript інтерфейсів.
+## 🚀 Installation and Run
 
-👤 Автор
-Євгеній Палущенко
+### Requirements
+
+- **Node.js 18+** (latest LTS recommended)
+
+### Steps:
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com
+   cd travel-trucks
+   ```
+
+Installation and Run
+Requirements
+Node.js 18+ (latest LTS recommended)
+Steps:
+
+1. Clone the repository.
+2. Create your local environment file based on .env.example:
+   cp .env.example .env
+3. Install dependencies:
+   npm install
+4. Run in development mode:
+   npm run dev
+5. Open in browser:
+   http://localhost:3000
+
+📂 Project Structure
+/app — routing, pages, and global layouts.
+/components — reusable React components (Loader, Button, Sidebar, etc.).
+/lib — API configuration (Axios instance) and request functions.
+/public — static assets (icons, logos).
+/types — TypeScript interface definitions.
+
+👤 Author
+Yevhenii Pavlushchenko
+Deploy: https://travel-trucks-nine-vert.vercel.app
 GitHub: https://github.com/Yevhenii-Pavlushchenko
 LinkedIn: https://www.linkedin.com/in/yevhenii-pavlushchenko/

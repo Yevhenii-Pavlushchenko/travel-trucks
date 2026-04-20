@@ -6,6 +6,7 @@
 }
 
 .feedbackItem{
+height: 180px;
 border-radius: 16px;
 background-color: var(--white);
 padding: 16px;
