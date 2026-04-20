@@ -1,28 +1,28 @@
-"use client";
-import css from "./CamperDetails.module.css";
+import type { Metadata } from "next";
+import { fetchCamperById } from "@/lib/api"; 
+import CamperView from "./CamperView"; 
 
-import { useParams } from "next/navigation";
-import { useQuery } from "@tanstack/react-query";
-import { fetchCamperById } from "@/lib/api";
+type Props = {
+  params: { camperId: string };
+};
 
-import CamperInfo from "@/components/CamperInfo/CamperInfo";
-import CamperReviews from "@/components/CamperReviews/CamperReviews";
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const camper = await fetchCamperById(params.camperId);
 
-export default function CamperDetailsPage() {
-  const { camperId } = useParams();
+  if (!camper) return { title: "Camper Not Found" };
+const imageUrl = camper.gallery?.[0]?.original || '/nocamper.png'; 
 
-  const { data: camper, isLoading, isError } = useQuery({
-    queryKey: ["camper", camperId],
-    queryFn: () => fetchCamperById(camperId as string),
-  });
+  return {
+    title: `${camper.name} | Travel Trucks`,
+    description: camper.description,
+    openGraph: {
+      title: camper.name,
+      description: camper.description,
+      images: [imageUrl], 
+    },
+  };
+}
 
-  if (isLoading) return <div className={css.loader}>Loading...</div>;
-  if (isError || !camper) return <div className={css.error}>Camper not found!</div>;
-
-  return (
-    <main className={css.container}>
-    { <CamperInfo camper={camper} /> }
-      {<CamperReviews/>}
-    </main>
-  );
+export default function Page() {
+  return <CamperView />;
 }

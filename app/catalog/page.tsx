@@ -1,12 +1,11 @@
 'use client'
 import css from './catalog.module.css'
 
-import CampersList from '@/components/CampersList/CampersList'
-import Sidebar from '@/components/Sidebar/Sidebar'
 import { CamperFilters } from '@/types/filters'
 import { useState } from 'react'
 
-
+import Sidebar from '@/components/Sidebar/Sidebar'
+import CampersList from '@/components/CampersList/CampersList'
 
 export default function CatalogPage() {
 

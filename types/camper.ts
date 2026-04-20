@@ -22,8 +22,8 @@ export interface Camper {
   consumption: string;
   transmission: CamperTransmission;
   engine: CamperEngine;
-    amenities: string[]; 
-    coverImage: string;
+  amenities: string[]; 
+  coverImage: string;
   gallery?: GalleryItem[]
   totalReviews: number;       
 }
